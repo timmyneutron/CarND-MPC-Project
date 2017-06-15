@@ -93,8 +93,7 @@ class FG_eval {
       // to calculate desired yaw angle
       AD<double> psides0 = CppAD::atan(coeffs[1] + 2 * coeffs[2] * x0 + 3 * coeffs[3] * x0 * x0);
 
-      // subsequent values of variables are predicted by a
-      // constant turn rate and velocity (CTRV) model
+      // subsequent values of variables are predicted by a linear model
       // difference between each value and subsequent value predicted
       // by CTRV model is constrained to be 0
       fg[1 + x_start + t] = x1 - (x0 + v0 * CppAD::cos(psi0) * dt);
