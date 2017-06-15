@@ -146,9 +146,8 @@ int main() {
           // set throttle value
           double throttle_value = vars[1];
 
+          // initialize json object and set steering and throttle values
           json msgJson;
-          // NOTE: Remember to divide by deg2rad(25) before you send the steering value back.
-          // Otherwise the values will be in between [-deg2rad(25), deg2rad(25] instead of [-1, 1].
           msgJson["steering_angle"] = steer_value;
           msgJson["throttle"] = throttle_value;
 
@@ -156,41 +155,28 @@ int main() {
           vector<double> mpc_x_vals;
           vector<double> mpc_y_vals;
 
-          for (int i = 0; i < 15; ++i)
+          // add predicted trajectory points to vector (shows up as green line in sim)
+          for (int i = 0; i < mpc.n_timesteps_; ++i)
           {
             mpc_x_vals.push_back(vars[2 + i]);
-            mpc_y_vals.push_back(vars[2 + 20 + i]);
+            mpc_y_vals.push_back(vars[2 + mpc.n_timesteps_ + i]);
           }
 
-          //.. add (x,y) points to list here, points are in reference to the vehicle's coordinate system
-          // the points in the simulator are connected by a Green line
-
+          // add predicted trajectory to json object
           msgJson["mpc_x"] = mpc_x_vals;
           msgJson["mpc_y"] = mpc_y_vals;
 
-          //Display the waypoints/reference line
-          vector<double> next_x_vals = x_car_vec;
-          vector<double> next_y_vals = y_car_vec;
+          // add waypoints to json object
+          msgJson["next_x"] = x_car_vec;
+          msgJson["next_y"] = y_car_vec;
 
-          //.. add (x,y) points to list here, points are in reference to the vehicle's coordinate system
-          // the points in the simulator are connected by a Yellow line
-
-          msgJson["next_x"] = next_x_vals;
-          msgJson["next_y"] = next_y_vals;
-
-
+          // dump json object in string to send to sim
           auto msg = "42[\"steer\"," + msgJson.dump() + "]";
-          // std::cout << msg << std::endl;
-          // Latency
-          // The purpose is to mimic real driving conditions where
-          // the car does actuate the commands instantly.
-          //
-          // Feel free to play around with this value but should be to drive
-          // around the track with 100ms latency.
-          //
-          // NOTE: REMEMBER TO SET THIS TO 100 MILLISECONDS BEFORE
-          // SUBMITTING.
+
+          // sleep for 100 milliseconds to simulate latency
           this_thread::sleep_for(chrono::milliseconds(100));
+
+          // send command to sim
           ws.send(msg.data(), msg.length(), uWS::OpCode::TEXT);
         }
       } else {

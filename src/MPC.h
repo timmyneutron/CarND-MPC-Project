@@ -8,6 +8,7 @@ using namespace std;
 
 class MPC {
  public:
+  size_t n_timesteps_;
   MPC();
 
   virtual ~MPC();
