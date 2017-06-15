@@ -5,21 +5,24 @@
 
 using CppAD::AD;
 
-// number of timesteps to simulate
+// TODO: Set the timestep length and duration
 size_t N = 20;
-
-// delta t of each time step in s
 double dt = 0.04;
 
-// length of car from front to center of gravity in m
+// This value assumes the model presented in the classroom is used.
+//
+// It was obtained by measuring the radius formed by running the vehicle in the
+// simulator around in a circle with a constant steering angle and velocity on a
+// flat terrain.
+//
+// Lf was tuned until the the radius formed by the simulating the model
+// presented in the classroom matched the previous radius.
+//
+// This is the length from front to CoG that has a similar radius.
 const double Lf = 2.67;
 
-// reference velocity in mph
 double ref_v = 70;
 
-// since trajectory is a single concatenated vector of all variable
-// trajectories, define starting indices for each variable for
-// easy reference
 size_t x_start = 0;
 size_t y_start = x_start + N;
 size_t psi_start = y_start + N;
@@ -252,12 +255,12 @@ vector<double> MPC::Solve(Eigen::VectorXd state, Eigen::VectorXd coeffs) {
   soln.push_back(solution.x[delta_start + 2]);
   soln.push_back(solution.x[a_start + 2]);
 
-  for (int i = 0; i < 25; ++i)
+  for (int i = 0; i < 20; ++i)
   {
     soln.push_back(solution.x[x_start + i]);
   }
 
-  for (int i = 0; i < 25; ++i)
+  for (int i = 0; i < 20; ++i)
   {
     soln.push_back(solution.x[y_start + i]);
   }

@@ -140,14 +140,15 @@ int main() {
           std::vector<double> vars = mpc.Solve(state, coeffs);
 
           // convert steering angle from radians to [-1, 1] and set value
-          // (max steering angle is 25 degrees = .436332 radians)
+          // (max steering angle is 25 degrees = .436332)
           double steer_value = -vars[0] / 0.436332;
 
           // set throttle value
           double throttle_value = vars[1];
 
-          // create json object and store steering and throttle values
           json msgJson;
+          // NOTE: Remember to divide by deg2rad(25) before you send the steering value back.
+          // Otherwise the values will be in between [-deg2rad(25), deg2rad(25] instead of [-1, 1].
           msgJson["steering_angle"] = steer_value;
           msgJson["throttle"] = throttle_value;
 
@@ -155,30 +156,41 @@ int main() {
           vector<double> mpc_x_vals;
           vector<double> mpc_y_vals;
 
-          for (int i = 0; i < 20; ++i)
+          for (int i = 0; i < 15; ++i)
           {
             mpc_x_vals.push_back(vars[2 + i]);
             mpc_y_vals.push_back(vars[2 + 20 + i]);
           }
 
-          // store MPC predicted trajectory (shows up as green line in sim)
+          //.. add (x,y) points to list here, points are in reference to the vehicle's coordinate system
+          // the points in the simulator are connected by a Green line
+
           msgJson["mpc_x"] = mpc_x_vals;
           msgJson["mpc_y"] = mpc_y_vals;
 
-          // store waypoints line (shows up as yellow line in sim)
+          //Display the waypoints/reference line
           vector<double> next_x_vals = x_car_vec;
           vector<double> next_y_vals = y_car_vec;
+
+          //.. add (x,y) points to list here, points are in reference to the vehicle's coordinate system
+          // the points in the simulator are connected by a Yellow line
 
           msgJson["next_x"] = next_x_vals;
           msgJson["next_y"] = next_y_vals;
 
-          // convert json to string to send commands to sim
+
           auto msg = "42[\"steer\"," + msgJson.dump() + "]";
-
-          // set to sleep fro 0.1 seconds to simulate latency
+          // std::cout << msg << std::endl;
+          // Latency
+          // The purpose is to mimic real driving conditions where
+          // the car does actuate the commands instantly.
+          //
+          // Feel free to play around with this value but should be to drive
+          // around the track with 100ms latency.
+          //
+          // NOTE: REMEMBER TO SET THIS TO 100 MILLISECONDS BEFORE
+          // SUBMITTING.
           this_thread::sleep_for(chrono::milliseconds(100));
-
-          // send command to sim
           ws.send(msg.data(), msg.length(), uWS::OpCode::TEXT);
         }
       } else {
