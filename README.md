@@ -19,17 +19,17 @@ Concepts explored in this project:
 ## Write-Up
 
 ### Model
-The state vector of the model is comprised of the x and y coordinates of the car, along with the yaw angle (![](http://www.sciweavers.org/upload/Tex2Img_1497538771/eqn.png)) and the velocity of the car. It also assumes two control inputs: acceleration and steering angle (![](http://www.sciweavers.org/upload/Tex2Img_1497538804/eqn.png)).
+The state vector of the model is comprised of the x and y coordinates of the car, along with the yaw angle, psi, and the velocity of the car. It also assumes two control inputs: acceleration and steering angle, delta.
 
 The model update equations are:
 
-![](http://www.sciweavers.org/upload/Tex2Img_1497538411/eqn.png)
+![](https://raw.githubusercontent.com/timmyneutron/CarND-MPC-Project/master/equations/eqn1.png)
 
-![](http://www.sciweavers.org/upload/Tex2Img_1497538492/eqn.png)
+![](https://github.com/timmyneutron/CarND-MPC-Project/blob/master/equations/eqn2.png?raw=true)
 
-![](http://www.sciweavers.org/upload/Tex2Img_1497538624/eqn.png)
+![](https://github.com/timmyneutron/CarND-MPC-Project/blob/master/equations/eqn3.png?raw=true)
 
-![](http://www.sciweavers.org/upload/Tex2Img_1497538711/eqn.png)
+![](https://github.com/timmyneutron/CarND-MPC-Project/blob/master/equations/eqn4.png?raw=true)
 
 ### Timestep Length and Elapsed Duration
 
