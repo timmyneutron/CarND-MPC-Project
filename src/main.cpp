@@ -122,9 +122,7 @@ int main() {
           // fit a 3rd order polynomial to waypoints in car reference frame
           Eigen::VectorXd coeffs = polyfit(x_car_eig, y_car_eig, 3);
 
-          // since x and y coordinates of the car are always 0 in the car
-          // reference frame, set the cross track error to
-          // -1 * y_intercept of the polynomial
+          // set cross track error to negative the y-intercept
           double cte = -coeffs[0];
 
           // likewise since yaw angle in the car reference frame is always 0,
