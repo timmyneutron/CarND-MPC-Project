@@ -227,8 +227,8 @@ vector<double> MPC::Solve(Eigen::VectorXd state, Eigen::VectorXd coeffs) {
 
   // add steering angle and acceleration to return vector
   // use values 2 timesteps in the future to account for latency
-  soln.push_back(solution.x[delta_start + 2]);
-  soln.push_back(solution.x[a_start + 2]);
+  soln.push_back(solution.x[delta_start]);
+  soln.push_back(solution.x[a_start]);
 
   // add x and y values of predicted trajectory to return vector
   for (int i = 0; i < n_timesteps_; ++i)

@@ -16,6 +16,11 @@ Concepts explored in this project:
   - Latency
   - Non-linear optimization using Ipopt and CppAD libraries
 
+## Viewing the Project
+To watch a video of the controller in action, click [here](https://www.dropbox.com/s/le11wa9p0wbv7qt/CarND-MPC-Project-Video.mov?dl=0). The yellow path represents the midline of the road, and the green path represents the optimal trajectory calculated by the controller.
+
+Source code is located in the `src` folder.
+
 ## Write-Up
 
 ### Model

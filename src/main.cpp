@@ -132,7 +132,7 @@ int main() {
           // set state vector for car in the car reference frame,
           // so x, y, and psi are set to 0
           Eigen::VectorXd state(6);
-          state << 0, 0, 0, v, cte, epsi;
+          state << v * 0.447 * 0.1, 0, 0, v, cte, epsi;
 
           // call the MPC solver function to calculate the best trajectory
           std::vector<double> vars = mpc.Solve(state, coeffs);
