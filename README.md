@@ -3,6 +3,8 @@
 # Udacity Self-Driving Car Nanodegree: Term 2
 # Project #5: Model Predictive Control
 
+![](https://raw.githubusercontent.com/timmyneutron/CarND-MPC-Project/master/img/mpc_project_screenshot.png)
+
 ## Introduction
 This is a project for Udacity's Self-Driving Car Nanodegree. It implements a model predictive controller (MPC) to steer a car around a simulated track at high speed.
 
@@ -28,13 +30,13 @@ The state vector of the model is comprised of the x and y coordinates of the car
 
 The model update equations are:
 
-![](https://raw.githubusercontent.com/timmyneutron/CarND-MPC-Project/master/equations/eqn1.png)
+![](https://raw.githubusercontent.com/timmyneutron/CarND-MPC-Project/master/img/eqn1.png)
 
-![](https://github.com/timmyneutron/CarND-MPC-Project/blob/master/equations/eqn2.png?raw=true)
+![](https://github.com/timmyneutron/CarND-MPC-Project/blob/master/img/eqn2.png?raw=true)
 
-![](https://github.com/timmyneutron/CarND-MPC-Project/blob/master/equations/eqn3.png?raw=true)
+![](https://github.com/timmyneutron/CarND-MPC-Project/blob/master/img/eqn3.png?raw=true)
 
-![](https://github.com/timmyneutron/CarND-MPC-Project/blob/master/equations/eqn4.png?raw=true)
+![](https://github.com/timmyneutron/CarND-MPC-Project/blob/master/img/eqn4.png?raw=true)
 
 ### Timestep Length and Elapsed Duration
 
