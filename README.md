@@ -22,7 +22,7 @@ To watch a video of the controller in action, click [here](https://youtu.be/IpkL
 
 To build and run the project:
 
-  - Click [here](https://github.com/udacity/self-driving-car-sim) for instructions on installing the simulator
+  - Click [here](https://github.com/udacity/self-driving-car-sim) for instructions on installing the simulator (this project uses version 2)
   - Click [here](https://github.com/udacity/CarND-MPC-Project) for instructions on installing dependencies and running the controller
 
 Source code is located in the `src` folder.
