@@ -36,7 +36,7 @@ The model update equations are:
 
 ![](https://raw.githubusercontent.com/timmyneutron/CarND-MPC-Project/master/img/eqn1.png)
 
-![](http://mathurl.com/y7w7tzdl)
+![](http://mathurl.com/y7w7tzdl.png)
 
 ![](https://github.com/timmyneutron/CarND-MPC-Project/blob/master/img/eqn3.png?raw=true)
 
