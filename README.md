@@ -8,8 +8,6 @@
 ## Introduction
 This is a project for Udacity's Self-Driving Car Nanodegree. It implements a model predictive controller (MPC) to steer a car around a simulated track at high speed.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/IpkLxuv-udc" frameborder="0" allowfullscreen></iframe>
-
 ## Concepts
 Concepts explored in this project:
 
@@ -20,7 +18,7 @@ Concepts explored in this project:
   - Non-linear optimization using Ipopt and CppAD libraries
 
 ## Viewing the Project
-To watch a video of the controller in action, click [here](https://www.dropbox.com/s/le11wa9p0wbv7qt/CarND-MPC-Project-Video.mov?dl=0). The yellow path represents the midline of the road, and the green path represents the optimal trajectory calculated by the controller.
+To watch a video of the controller in action, click [here](https://youtu.be/IpkLxuv-udc).
 
 Source code is located in the `src` folder.
 
