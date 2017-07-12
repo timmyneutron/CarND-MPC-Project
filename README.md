@@ -8,6 +8,7 @@
 ## Introduction
 This is a project for Udacity's Self-Driving Car Nanodegree. It implements a model predictive controller (MPC) to steer a car around a simulated track at high speed.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IpkLxuv-udc" frameborder="0" allowfullscreen></iframe>
 
 ## Concepts
 Concepts explored in this project:
