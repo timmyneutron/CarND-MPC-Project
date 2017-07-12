@@ -17,7 +17,7 @@ Concepts explored in this project:
   - Latency
   - Non-linear optimization using Ipopt and CppAD libraries
 
-## Viewing the Project
+## Getting Started
 To watch a video of the controller in action, click [here](https://youtu.be/IpkLxuv-udc).
 
 To build and run the project:
