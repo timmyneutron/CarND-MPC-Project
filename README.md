@@ -30,7 +30,7 @@ Source code is located in the `src` folder.
 ## Write-Up
 
 ### Model
-The state vector of the model is comprised of the x and y coordinates of the car, along with the yaw angle, ![](https://raw.githubusercontent.com/timmyneutron/CarND-MPC-Project/master/img/psi.png), and the velocity of the car. It also assumes two control inputs: acceleration and the steering angle, delta. ![](https://raw.githubusercontent.com/timmyneutron/CarND-MPC-Project/master/img/Lf.png) represents the distance from the center of gravity to the front of the car.
+The state vector of the model is comprised of the x and y coordinates of the car, along with the yaw angle, ![](https://raw.githubusercontent.com/timmyneutron/CarND-MPC-Project/master/img/psi.png), and the velocity of the car. It also assumes two control inputs: acceleration and the steering angle, ![](https://raw.githubusercontent.com/timmyneutron/CarND-MPC-Project/master/img/delta.png). ![](https://raw.githubusercontent.com/timmyneutron/CarND-MPC-Project/master/img/Lf.png) represents the distance from the center of gravity to the front of the car.
 
 The model update equations are:
 
