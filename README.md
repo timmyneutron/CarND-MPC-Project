@@ -60,4 +60,4 @@ A cost function is set to include three variables to minimize: the difference be
 
 Once the cost function is set, the MPC finds the trajectory that minimizes this cost function over that whole trajectory, and returns vectors for each of the state variables and actuators.
 
-The x and y values for the predicted trajectory are used to draw the green line in the sim, and the values the MPC returns the steering angle and acceleration values that are used to control the car.
+The x and y values for the predicted trajectory are used to draw the green line in the sim, and the values the MPC returns are the steering angle and acceleration values that are used to control the car.
